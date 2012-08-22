@@ -16,4 +16,13 @@ class hiera::params {
   $hiera_package_name = 'hiera'
   $hiera_puppet_package_name = 'hiera-puppet'
 
+  # Fail if the OS is not Ubuntu/Debian
+  case $::operatingsystem {
+    ubuntu, debian: {
+    }
+    default: {
+      fail("Unsupported platform: ${::operatingsystem}")
+    }
+  }
+
 }

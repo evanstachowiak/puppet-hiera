@@ -31,7 +31,7 @@ class hiera::puppet (
   Class['hiera'] -> Class['hiera::puppet']
   include hiera
 
-  package { $hiera_puppet_package:
+  package { $package_name:
     ensure   => $ensure,
     provider => $provider,
   } 
